@@ -1,0 +1,136 @@
+.cards {
+  margin: 60px 15px;
+  min-width: 290px;
+  text-align: center;
+
+  @include mobile {
+  }
+
+  @include desktop {
+  }
+
+  figure {
+    margin: 0;
+    position: relative;
+  }
+
+  &--list {
+    @include display-flex-between();
+    align-items: center;
+    margin: 0;
+
+    &:nth-child(1) {
+      margin-top: 30px;
+    }
+
+    & .cards__img {
+      background-color: $gray;
+      border-radius: 0;
+      box-shadow: none;
+      height: 500px;
+      margin-bottom: 0;
+      width: 66%;
+
+      &:after {
+        mix-blend-mode: multiply;
+      }
+    }
+
+    &:nth-of-type(2n) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &--awards {
+    margin-bottom: 0;
+  }
+
+  &__content {
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: left;
+  }
+
+  &__img {
+    @include image-dropshadow();
+    border-radius: 5px;
+    display: inline-block;
+    height: 180px;
+    margin-bottom: 60px;
+    width: 180px;
+
+    &:after {
+      content: "";
+      background: url(../img/img-placeholder.png) no-repeat center center;
+      height: 100%;
+      left: 50%;
+      mix-blend-mode: darken;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+    &-caption {
+      bottom: 30px;
+      position: absolute;
+      width: 100%;
+    }
+
+    &--big {
+      position: relative;
+      margin-bottom: 0;
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-weight: $font-weight-medium;
+    font-size: 1.25rem;
+    margin-bottom: 50px;
+    margin-top: .85rem;
+    padding: 0 20px;
+
+    &--faqs {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    color: $medium-gray;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    margin-bottom: 0;
+    margin-top: .85rem;
+
+    @include desktop {
+      padding: 0 20px;
+    }
+  }
+
+  &__link {
+    font-size: .9rem;
+    font-weight: $font-weight-medium;
+    position: relative;
+    top: -10px;
+
+    &:after {
+      content: ' \02023';
+      font-size: 3rem;
+      position: relative;
+      top: 10px;
+
+      @include desktop {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  &__button {
+    @include button($dark-gray, $black, $gray, $black);
+    margin: 50px 20px;
+    padding: 15px 20px;
+    font-weight: $font-weight-medium;
+  }
+}

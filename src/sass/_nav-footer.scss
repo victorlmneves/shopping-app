@@ -1,0 +1,17 @@
+.nav-footer {
+  width: 100%;
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
+
+  &__link {
+    color: $gray;
+    font-size: .9rem;
+    text-decoration: underline;
+
+    &:not(:last-child) {
+        margin-right: 40px;
+    }
+  }
+}
