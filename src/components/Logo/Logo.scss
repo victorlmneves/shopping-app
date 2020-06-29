@@ -1,0 +1,23 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.logo {
+  display: inline-block;
+
+  @include respond-up-to(mobile) {
+    margin: 20px 0;
+    width: 130px;
+  }
+
+  @include respond-to(mobile) {
+    width: auto;
+  }
+
+  @include respond-up-to(tablet) {
+    margin: 20px 0;
+  }
+
+  @include respond-to(tablet) {
+    margin-top: 40px;
+  }
+}

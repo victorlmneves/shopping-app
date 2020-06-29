@@ -1,0 +1,71 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.button {
+  @include button($magenta, $white, $magenta, $white);
+  align-items: center;
+  border-radius: 30px;
+  border: 2px solid $magenta;
+  display: flex;
+  font-family: $default-font-family;
+  font-size: 0.8rem;
+  margin: 0 10px;
+  padding: 15px 35px;
+  text-transform: uppercase;
+
+  @include respond-to(mobile-xl) {
+    font-size: 1rem;
+  }
+
+  &:not(:first-child) {
+    @include respond-up-to(mobile-xl) {
+      margin-top: 10px;
+    }
+  }
+
+  &--prev {
+    & .button__arrow {
+      fill: $white;
+      margin-left: 0;
+      margin-right: 25px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--inverted {
+    @include button($white, $magenta, $white, $magenta);
+    border: 2px solid $magenta;
+
+    & .button__arrow {
+      fill: $magenta;
+    }
+  }
+
+  &__arrow {
+    fill: $white;
+    margin-left: 25px;
+  }
+
+  &--see-coupon {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  &--small {
+    border-radius: 6px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    padding: 5px 25px;
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  &--change-pass {
+    position: absolute;
+    right: 0;
+    top: -40px;
+  }
+}

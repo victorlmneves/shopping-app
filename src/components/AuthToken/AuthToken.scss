@@ -1,0 +1,117 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.token-container {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 60px;
+  text-align: center;
+  align-self: center;
+
+  &__title {
+    color: $magenta;
+    font-family: $default-font-family;
+    font-size: 2rem;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+  }
+
+  &__email {
+    border-radius: 25px;
+    border: 2px solid $gray-30;
+    height: 50;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 10px 15px;
+    text-align: left;
+    width: 100%;
+  }
+
+  &__text {
+    margin: 40px auto;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  &__link {
+    align-self: center;
+    color: $gray-40;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: $font-weight-bold;
+    font-family: $font-text;
+
+    &--button {
+      @include button($magenta, $white, $magenta, $white);
+      align-items: center;
+      border-radius: 30px;
+      border: 2px solid $magenta;
+      display: flex;
+      font-family: $default-font-family;
+      font-size: 1rem;
+      margin: 0 10px;
+      padding: 15px 35px;
+      text-transform: uppercase;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__button {
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .action-button {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    max-width: 400px;
+    margin-bottom: 25px;
+
+    &.btn-main {
+      background: #fe008c;
+      color: #fff;
+      padding-bottom: 10px;
+      padding-top: 10px;
+
+      &:hover {
+        background: #b20062;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/* .email-container {
+  height: 50;
+  padding: 10px 15px;
+  border: 1px solid $gray-20;
+  border-radius: 25px;
+  text-align: left;
+}
+
+.title {
+  font-family: $default-font-family;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: $magenta;
+  margin: 0 0 30px 0;
+}
+
+.description {
+  margin: 20px 0;
+}
+
+.action-button {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+} */

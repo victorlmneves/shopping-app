@@ -1,0 +1,77 @@
+@import "./variables";
+@import "./mixins";
+
+.icon {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+
+  &__show {
+    background: url(../../assets/images/eye-show.png) no-repeat center;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 45px;
+
+    &-profile {
+      top: 18px;
+    }
+  }
+
+  &__hide {
+    background: url(../../assets/images/eye-hide.png) no-repeat center;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 45px;
+
+    &-profile {
+      top: 18px;
+    }
+  }
+
+  &--status {
+    &-checked,
+    &-cross,
+    &-wait {
+      position: absolute;
+
+      @include respond-to(tablet) {
+        left: -10px;
+        top: calc(50% - 10px);
+      }
+
+      @include respond-up-to(tablet) {
+        right: 20px;
+        top: -110px;
+      }
+    }
+
+    &-checked {
+      background: url(../../assets/images/icon-status-checked.png) no-repeat
+        center;
+    }
+
+    &-cross {
+      background: url(../../assets/images/icon-status-cross.png) no-repeat
+        center;
+    }
+
+    &-wait {
+      background: url(../../assets/images/icon-status-wait.png) no-repeat center;
+    }
+  }
+
+  &--info {
+    background: url(../../assets/images/icon-info.png) no-repeat center;
+    margin: -4px 5px -4px 0;
+    display: inline-block;
+
+    &-nif {
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 50px;
+    }
+  }
+}

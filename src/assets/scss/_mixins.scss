@@ -1,0 +1,162 @@
+@mixin button-dropshadow {
+  box-shadow: 0 2px 4px rgba(50, 10, 170, 0.3);
+}
+
+@mixin tab-dropshadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@mixin input-dropshadow {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+@mixin image-dropshadow {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+@mixin button($bg-color, $font-color, $hover-color, $hover-font-color) {
+  background-color: $bg-color;
+  border: 0;
+  color: $font-color;
+  transition: all 1s;
+
+  &:hover,
+  &:focus {
+    background: darken($hover-color, 15%);
+    color: $hover-font-color;
+    text-decoration: none;
+    transition: all 1s;
+  }
+}
+
+@mixin unstyled-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin clearfix {
+  &:after,
+  &:before {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin display-flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@mixin display-flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin display-flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@mixin display-flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-vertical-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin mobile-xl {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 567px) {
+    @content;
+  }
+}
+
+@mixin custom-breakpoint($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  // from http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $value != null {
+    @media print, (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+@mixin respond-up-to($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint) - 1;
+
+  @if $value != null {
+    @media print, (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+@function convert($value, $currentUnit, $convertUnit) {
+  @if $currentUnit == px {
+    @if $convertUnit == ems {
+      @return $value / 16 + 0em;
+    } @else if $convertUnit == percent {
+      @return percentage($value / 16);
+    }
+  } @else if $currentUnit == ems {
+    @if $convertUnit == px {
+      @return $value * 16 + 0px;
+    } @else if $convertUnit == percent {
+      @return percentage($value);
+    }
+  } @else if $currentUnit == percent {
+    @if $convertUnit == px {
+      @return $value * 16 / 100 + 0px;
+    } @else if $convertUnit == ems {
+      @return $value / 100 + 0em;
+    }
+  } @else if $currentUnit == pts {
+    @if $convertUnit == px {
+      @return $value * 1.3333 +0px;
+    } @else if $convertUnit == ems {
+      @return $value / 12 + 0em;
+    } @else if $convertUnit == percent {
+      @return percentage($value / 12);
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+$color-link: #707070;
+
+.main-menu {
+  font-family: $Latina-Light;
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: block;
+
+    @include desktop {
+      @include display-flex-between();
+      @include unstyled-list();
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    &--top {
+      display: none;
+
+      @include desktop {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__item {
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    &:not(:last-of-type):after {
+      padding: 0 10px;
+    }
+
+    &:not(:nth-child(n + 6)):after {
+      content: "\2022";
+      color: #bcbfc1;
+    }
+
+    &--button {
+      margin-left: 20px;
+    }
+
+    &--small {
+      color: $color-link;
+      font-size: 0.85rem;
+
+      &:after {
+        content: "" !important;
+      }
+
+      & span {
+        color: $magenta;
+      }
+    }
+  }
+
+  &__link {
+    color: $color-link;
+    transition: all 0.5s;
+
+    &:hover,
+    &--active {
+      color: $magenta;
+      transition: all 0.5s;
+    }
+
+    &--button {
+      background-color: $magenta;
+      border: 2px solid $magenta;
+      border-radius: 30px;
+      color: $white;
+      font-size: 0.85rem;
+      padding: 12px 28px;
+      transition: all 0.5s;
+
+      &:hover,
+      &--active {
+        background: darken($magenta, 15%);
+        color: $white;
+        text-decoration: none;
+        transition: all 0.5s;
+      }
+    }
+  }
+
+  & .button {
+    background: $white;
+    border-color: $gray-50;
+    color: $gray-50;
+    font-size: 0.8rem;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-transform: none;
+  }
+}

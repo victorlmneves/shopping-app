@@ -1,0 +1,95 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.modal-game {
+  display: none;
+}
+
+.no-scroll {
+
+  & .modal-game {
+    background: transparent;
+    border-radius: 10px;
+    border: none;
+    color: $gray-50;
+    height: 100%;
+    padding: .5rem;
+    position: absolute;
+    text-align: center;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 100%;
+    z-index: 99999;
+
+    &.open {
+      animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
+      display: block;
+
+      & .modal__content {
+        height: 100%;
+
+        & .iframe-container {
+          height: 98vh;
+          overflow: hidden;
+          position: relative;
+
+          & iframe {
+            border: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 95vw;
+
+            /* iPhone 6, iPhone 6s, iPhone 7  */
+            @media screen and (device-aspect-ratio: 375/667) {
+              top: -40px;
+            }
+
+            /* iPhone 6 Plus, iPhone 6s Plus, iPhone 7 Plus, iPhone 8, iPhone X, XS, XS Max  */
+            @media screen and (device-aspect-ratio: 9/16) {
+              top: -60px;
+            }
+
+            /* iPhone X and Xs Max */
+            @media only screen 
+                and (min-device-width: 375px) 
+                and (min-device-height: 812px) 
+                and (-webkit-device-pixel-ratio: 3)
+                and (orientation: portrait) { 
+                top: -60px;
+            }
+          }
+        }
+      }
+
+      & .modal__close {
+        background: $black;
+        color: $white;
+        cursor: pointer;
+        opacity: .5;
+        padding: 5px 10px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 99999;
+      }
+    }
+  }
+
+  & .mobile-header {
+    z-index: 99998;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

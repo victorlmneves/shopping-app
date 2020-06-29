@@ -1,0 +1,245 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.modal,
+.modal-profile {
+  display: none;
+}
+
+.no-scroll {
+
+  & .modal {
+    background-color: $white;
+    border-radius: 10px;
+    border: none;
+    color: $gray-50;
+    max-width: 800px;
+    padding: 2rem;
+    position: absolute;
+    text-align: center;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 100%;
+    z-index: 99999;
+
+    &--profile {
+      width: auto;
+
+      &.open {
+        animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
+        display: block;
+
+        & .modal__content {
+          margin-bottom: 30px;
+          margin-top: 30px;
+          max-height: 75vh;
+          min-height: 50vh;
+          overflow-y: auto;
+          padding-left: 2rem;
+          padding-right: 2rem;
+          text-align: center;
+
+          & span {
+            font-weight: $font-weight-bold;
+          }
+        }
+
+        & .modal__actions {
+          display: flex;
+          justify-content: space-around;
+          padding-left: 2rem;
+          padding-right: 2rem;
+          display: none;
+        }
+
+        & .modal__close {
+          background: $white;
+          cursor: pointer;
+          padding: 5px 10px;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+        }
+
+        & .modal__icon {
+          margin: 0 auto 30px;
+          width: auto;
+        }
+      }
+    }
+
+    &--public {
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      & .modal__title {
+        color: #fe008c;
+        font-family: "Latina-Heavy";
+        font-size: 1.8rem;
+        line-height: 2rem;
+        margin: 0 auto 60px;
+        text-align: left;
+        text-transform: uppercase;
+        width: 100%;
+      }
+
+      & .faqs {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    &.open {
+      animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
+      display: block;
+
+      & .modal__title {
+        font-size: 1.6rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      & .modal__content {
+        margin-bottom: 30px;
+        margin-top: 30px;
+        max-height: 75vh;
+        min-height: 50vh;
+        overflow-y: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      & .modal__actions {
+        display: flex;
+        justify-content: space-around;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        display: none;
+      }
+
+      & .modal__close {
+        background: $white;
+        cursor: pointer;
+        padding: 5px 10px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      & .info {
+        margin: 0;
+        padding: 0;
+        position: unset;
+        
+        &__content {
+          box-shadow: unset;
+          padding: 0;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+.no-scroll-profile {
+
+  & .modal-profile {
+    background-color: $white;
+    border-radius: 10px;
+    border: none;
+    color: $gray-50;
+    left: 50%;
+    max-width: 800px;
+    padding: 2rem;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+    z-index: 99999;
+
+    @include respond-up-to(mobile) {
+      height: 100vh;
+      border-radius: 0;
+      overflow-y: scroll;
+    }
+
+    &.open {
+      animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
+      display: block;
+
+      & .modal__content {
+        margin-bottom: 30px;
+        margin-top: 30px;
+        overflow-y: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        text-align: center;
+
+        @include respond-up-to(mobile) {
+          margin-bottom: 15px;
+          margin-top: 0;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        & span {
+          font-weight: $font-weight-bold;
+        }
+
+        .last-data {
+          padding-bottom: 20px;
+        }
+      }
+
+      & .modal__actions {
+        display: flex !important;
+        justify-content: space-around;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        display: none;
+
+        @include respond-up-to(mobile) {
+          flex-direction: column-reverse;
+        }
+
+        button {
+          @include respond-up-to(mobile) {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 25px;
+          }
+        }
+      }
+
+      & .modal__close {
+        background: $white;
+        cursor: pointer;
+        padding: 5px 10px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      & .modal__icon {
+        margin: 0 auto 30px;
+        width: auto;
+      }
+    }
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

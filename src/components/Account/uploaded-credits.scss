@@ -1,0 +1,294 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.uploaded-credits {
+  color: $gray-50;
+  width: 100%;
+
+  &__table {
+    border-collapse: collapse;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: $font-text;
+    width: 100%;
+
+    & th {
+      display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!
+    }
+
+    & thead th,
+    & tbody tr td {
+      padding: 20px 30px;
+      text-align: left;
+
+      @include respond-to(tablet) {
+        display: table-cell;
+      }
+    }
+
+    & tbody tr td {
+      @include respond-up-to(tablet) {
+        display: none;
+
+        &:not(:first-child) {
+          display: block;
+        }
+      }
+
+      &:last-child {
+        background: url(../../assets/images/arrow-down.png) no-repeat 95% center;
+        position: relative;
+
+        @include respond-to(tablet) {
+          background: url(../../assets/images/arrow-down.png) no-repeat 90%
+            center;
+        }
+      }
+    }
+
+    & tbody tr {
+      background-color: $white;
+      cursor: pointer;
+
+      @include respond-to(tablet) {
+        &.even {
+          border-radius: 25px 25px 25px 25px;
+          box-shadow: inset 0 0 0 1px rgba(215, 221, 226, 1);
+
+          /* Edge only */
+          @supports (-ms-ime-align: auto) {
+            border: 1px solid $gray-20;
+            box-shadow: unset;
+          }
+        }
+
+        &.odd {
+          border-radius: 25px 25px 25px 25px;
+          box-shadow: inset 0 0 0 100px rgba(235, 235, 235, 1);
+        }
+      }
+
+      & td {
+        @include respond-up-to(tablet) {
+          border-left: 1px solid $gray-20;
+          border-right: 1px solid $gray-20;
+          font-weight: $font-weight-bold;
+        }
+      }
+
+      @include respond-up-to(tablet) {
+        td:nth-child(2) {
+          padding-top: 30px;
+        }
+
+        td:nth-child(5) {
+          padding-bottom: 30px;
+        }
+
+        &:nth-child(3n + 2) {
+          display: none;
+        }
+
+        &:nth-child(3n) {
+          height: 20px;
+        }
+
+        &:nth-child(2n + 2) {
+          td:nth-child(2n + 1),
+          td:nth-child(1n + 2) {
+            background: $gray-10;
+
+            /* &:last-child {
+
+              @include respond-up-to(tablet) {
+                background: $gray-10 url(../../assets/images/arrow-down.png) no-repeat 95% center;
+                position: relative;
+              }
+            } */
+          }
+
+          td:nth-child(1n + 2) {
+            &:last-child {
+              @include respond-up-to(tablet) {
+                background: $gray-10 url(../../assets/images/arrow-down.png)
+                  no-repeat 95% center;
+                position: relative;
+              }
+            }
+          }
+        }
+      }
+
+      &.clicked {
+        @include respond-up-to(tablet) {
+          & td:last-child {
+            border: 1px solid $gray-20;
+            border-top: 0;
+            border-radius: 0 0 0 0;
+            background: url(../../assets/images/arrow-up.png) no-repeat 95%
+              center !important;
+          }
+        }
+
+        @include respond-to(tablet) {
+          &.even {
+            border-radius: 25px 25px 0 0;
+            box-shadow: inset 0 0 0 1px rgba(215, 221, 226, 1);
+          }
+
+          &.odd {
+            border-radius: 25px 25px 0 0;
+            box-shadow: inset 0 0 0 100px rgba(235, 235, 235, 1);
+          }
+
+          & td {
+            &:last-child {
+              background: url(../../assets/images/arrow-up.png) no-repeat 90%
+                center;
+            }
+          }
+        }
+      }
+
+      &.active {
+        @include respond-up-to(tablet) {
+          display: block;
+
+          & td:first-child {
+            display: block;
+            border: 1px solid $gray-20;
+            border-radius: 0 0 20px 20px;
+            border-top: 0;
+
+            &:before {
+              content: "";
+            }
+          }
+
+          & td:last-child {
+            @include respond-up-to(tablet) {
+              background: none;
+            }
+          }
+        }
+
+        @include respond-to(tablet) {
+          border-radius: 0 0 25px 25px;
+          box-shadow: inset 0 0 0 1px rgba(215, 221, 226, 1);
+        }
+      }
+    }
+
+    & td {
+      @include respond-up-to(tablet) {
+        &:nth-child(4n + 2) {
+          border-top: 1px solid $gray-20;
+          border-radius: 20px 20px 0 0;
+        }
+
+        &:nth-child(4n) {
+          border-bottom: 1px solid $gray-20;
+          border-radius: 0 0 20px 20px;
+        }
+
+        &:before {
+          content: attr(data-th) ": ";
+          display: inline-block;
+          font-weight: $font-weight-regular;
+          margin-right: 5px;
+
+          @include respond-to(tablet) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__wrap-details {
+    @include respond-to(tablet) {
+      align-items: baseline;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__details {
+    .uploaded-credits__topic {
+      padding-bottom: 15px;
+    }
+
+    @include respond-up-to(tablet) {
+      &:nth-child(2) {
+        & .uploaded-credits__topic {
+          display: none;
+        }
+      }
+
+      &:nth-child(3) {
+        & .uploaded-credits__topic {
+          margin-top: 30px;
+        }
+      }
+    }
+
+    @include respond-to(tablet) {
+      width: 30%;
+
+      &:last-child {
+        width: 35%;
+      }
+    }
+  }
+
+  .ems__details {
+    .uploaded-credits__topic {
+      margin-top: 30px;
+    }
+  }
+
+  &__empty-row {
+    height: 20px;
+    padding: 0 !important;
+
+    &:last-child {
+      background: none !important;
+    }
+  }
+
+  &__box {
+    background: $white;
+    border: 1px solid $gray-20;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    padding: 15px;
+
+    @include respond-to(mobile) {
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    & button {
+      margin: 0 auto;
+    }
+  }
+
+  &__item {
+    font-weight: $font-weight-regular;
+    margin-bottom: 15px;
+
+    & span {
+      display: inline-block;
+      font-weight: $font-weight-bold;
+      margin-left: 5px;
+    }
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+.odd-show {
+  background-color: #f8f8f8 !important;
+}

@@ -1,0 +1,121 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.mobile-menu {
+  background: $white;
+  font-family: $Latina-Light;
+  left: -85%;
+  height: 100%;
+  position: absolute;
+  top: 70px;
+  width: 85%;
+  z-index: 999999;
+  transition: all 1000ms cubic-bezier(0.33, 0.66, 0, 2);
+
+  &.open {
+    left: 0;
+    overflow-y: auto;
+    transition: all 1000ms cubic-bezier(0, 2, 0.33, 0.66);
+
+    @include desktop {
+      display: none;
+    }
+
+    .logo {
+      padding-left: 30px;
+    }
+  }
+
+  @include desktop {
+    display: none;
+  }
+
+  &__head {
+    background: $magenta;
+    color: $white;
+    line-height: 1rem;
+    padding: 30px;
+
+    & .button {
+      background: $white;
+      color: $magenta;
+      display: inline-block;
+      line-height: 1rem;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      text-transform: none;
+
+      &:hover {
+        border-color: $white;
+      }
+
+      & .link__arrow {
+        display: none;
+      }
+    }
+  }
+
+  &__user {
+    font-family: $Latina-Bold;
+    font-size: $font-size-26;
+    line-height: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  &__shopping,
+  &__credits {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  & .main-menu {
+    padding: 30px 30px 90px;
+
+    /* iPhone 6, iPhone 6s, iPhone 7  */
+    @media screen and (device-aspect-ratio: 375/667) {
+      padding-bottom: 120px;
+    }
+
+    /* iPhone 6 Plus, iPhone 6s Plus, iPhone 7 Plus, iPhone 8, iPhone X, XS, XS Max  */
+    @media screen and (device-aspect-ratio: 9/16) {
+      padding-bottom: 140px;
+    }
+
+    /* iPhone X and Xs Max */
+    @media only screen and (min-device-width: 375px) and (min-device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+      padding-bottom: 160px;
+    }
+
+    /* iPhone XR */
+    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+      padding-bottom: 140px;
+    }
+
+    &__list {
+      @include unstyled-list;
+    }
+
+    &__item {
+      margin-bottom: 30px;
+
+      &:after {
+        content: "";
+        padding: 0;
+      }
+
+      &--button {
+        margin-left: 0;
+        margin-top: 30px;
+      }
+    }
+
+    &__link {
+      font-family: $Latina-Bold;
+      font-size: $font-size-18;
+
+      &--button {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

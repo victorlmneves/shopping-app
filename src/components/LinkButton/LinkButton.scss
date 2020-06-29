@@ -1,0 +1,52 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.link {
+  @include button($white, $magenta, $magenta, $white);
+
+  &--button {
+    align-items: center;
+    border-radius: 30px;
+    border: 2px solid $magenta;
+    display: flex;
+    padding: 15px 35px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+
+    &:hover {
+      transition: all 0.5s;
+
+      & .link__arrow {
+        fill: $white;
+        transition: all 0.5s;
+      }
+    }
+
+    & .link__arrow {
+      fill: $magenta;
+      transition: all 0.5s;
+    }
+  }
+
+  &--inverted {
+    @include button($magenta, $white, $white, $magenta);
+    border: 2px solid $magenta;
+
+    &:hover {
+      background: $white;
+      border: 2px solid $magenta;
+
+      & .link__arrow {
+        fill: $magenta;
+      }
+    }
+
+    & .link__arrow {
+      fill: $white;
+    }
+  }
+
+  &__arrow {
+    margin-left: 25px;
+  }
+}

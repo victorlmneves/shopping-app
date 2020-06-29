@@ -1,0 +1,41 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.pagination {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 15px;
+  width: 100%;
+
+  &__prev,
+  &__next {
+    align-items: center;
+    background: $gray-50;
+    border-radius: 50%;
+    display: flex;
+    height: 38px;
+    justify-content: center;
+    width: 38px;
+  }
+
+  &__next {
+    & svg > path {
+      transform: rotate(0);
+    }
+  }
+
+  &__pages {
+    color: $gray-50;
+    padding: 0 10px;
+  }
+
+  &__arrow {
+    cursor: pointer;
+    fill: $white;
+  }
+
+  & .is-disabeld {
+    background: $gray-10;
+  }
+}

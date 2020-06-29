@@ -1,0 +1,80 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.used-credits {
+  color: $gray-50;
+  width: 100%;
+
+  &__table {
+    border-collapse: collapse;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: $font-text;
+    width: 100%;
+
+    & th {
+      display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!
+    }
+
+    & thead th,
+    & tbody tr td {
+      padding: 15px 20px;
+      text-align: left;
+
+      @include respond-to(mobile-xl) {
+        display: table-cell;
+      }
+    }
+
+    & tbody tr {
+      @include respond-up-to(mobile-xl) {
+        border-radius: 25px 25px 25px 25px;
+        box-shadow: inset 0 0 0 1px rgba(215, 221, 226, 1);
+        border-bottom: 0;
+      }
+
+      &:nth-child(2n) {
+        box-shadow: unset;
+      }
+
+      @include respond-to(mobile-xl) {
+        &.even {
+          border-radius: 25px 25px 25px 25px;
+          box-shadow: inset 0 0 0 1px rgba(215, 221, 226, 1);
+        }
+
+        &.odd {
+          border-radius: 25px 25px 25px 25px;
+          box-shadow: inset 0 0 0 100px rgba(215, 221, 226, 1);
+        }
+      }
+
+      &:nth-child(2n) {
+        & td {
+          border: 0;
+          height: 20px;
+          padding: 0;
+
+          &:before {
+            content: "";
+          }
+        }
+      }
+    }
+
+    & td {
+      display: block;
+
+      &:before {
+        content: attr(data-th) ": ";
+        display: inline-block;
+        font-weight: $font-weight-regular;
+        margin-right: 5px;
+
+        @include respond-to(mobile-xl) {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+@import "./variables";
+@import "./mixins";
+
+.info {
+  margin-top: 275px;
+  position: relative;
+
+  @include respond-up-to(tablet) {
+    margin-top: 250px;
+    margin-bottom: 75px;
+    padding: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  @include respond-to(tablet) {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 576px;
+
+    @include respond-up-to(tablet) {
+      padding: 0;
+    }
+
+    @include respond-to(tablet) {
+      max-width: 1000px;
+      padding: 0 25px;
+    }
+  }
+
+  &__content {
+    background: $white;
+    border: 0;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+    padding: 90px 30px 30px;
+    margin: 0 auto;
+    z-index: 1;
+
+    @include respond-to(tablet) {
+      padding: 90px 60px 30px;
+    }
+  }
+
+  &__title {
+    color: $magenta;
+    font-family: $Latina-Bold;
+    font-size: 30px;
+    line-height: 2rem;
+    margin: 0 auto 60px;
+    text-transform: uppercase;
+    width: 100%;
+
+    @include respond-up-to(tablet) {
+      font-size: 24px;
+      /* padding-left: 15px;
+      padding-right: 15px; */
+      text-align: center;
+    }
+  }
+
+  &__text {
+    color: $gray-50;
+    font-family: $font-text;
+    font-size: 0.9rem;
+    line-height: 1.6rem;
+    margin-bottom: 30px;
+    margin-top: 0;
+
+    @include desktop {
+      word-spacing: 0.15rem;
+    }
+
+    blockquote,
+    dl,
+    ol,
+    p,
+    pre,
+    ul {
+      margin: 1.2em 0;
+    }
+
+    b,
+    strong {
+      font-weight: inherit;
+      font-weight: bolder;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 1.8em 0;
+      line-height: 1.33;
+    }
+
+    ol {
+      list-style-type: decimal;
+    }
+
+    li {
+      display: list-item;
+      text-align: -webkit-match-parent;
+    }
+  }
+}

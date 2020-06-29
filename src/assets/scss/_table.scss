@@ -1,0 +1,163 @@
+.table {
+  border-collapse: collapse;
+  font-family: $font-text;
+  width: 100%;
+
+  & tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+  }
+
+  & tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+  }
+
+  &--account {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    & th {
+      display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!
+    }
+
+    & thead th,
+    & tbody tr td {
+      padding: 10px 30px;
+      text-align: left;
+
+      @include respond-to(mobile-xl) {
+        display: table-cell;
+        padding: 0.25em 0.5em;
+      }
+    }
+
+    & tbody tr td {
+      display: none;
+
+      &:not(:first-child) {
+        display: block;
+      }
+    }
+
+    & tbody tr {
+      background-color: $white;
+
+      & td {
+        border-left: 1px solid $gray-20;
+        border-right: 1px solid $gray-20;
+      }
+
+      td:nth-child(2) {
+        padding-top: 30px;
+      }
+
+      td:nth-child(5) {
+        padding-bottom: 30px;
+      }
+
+      &:nth-child(3n + 2) {
+        display: none;
+      }
+
+      &:nth-child(3n) {
+        height: 20px;
+      }
+
+      &:nth-child(2n + 2) {
+        td:nth-child(2n + 1),
+        td:nth-child(1n + 2) {
+          background: $gray-10;
+        }
+      }
+
+      &.clicked {
+        & td:last-child {
+          border: 1px solid $gray-20;
+          border-top: 0;
+          border-radius: 0 0 0 0;
+        }
+      }
+
+      &.active {
+        display: block;
+
+        & td:first-child {
+          display: block;
+          border: 1px solid $gray-20;
+          border-radius: 0 0 20px 20px;
+          border-top: 0;
+
+          &:before {
+            content: "";
+          }
+        }
+      }
+    }
+
+    & td {
+      &:nth-child(4n + 2) {
+        border: 1px solid $gray-20;
+        border-bottom: 0;
+        border-radius: 20px 20px 0 0;
+      }
+
+      &:nth-child(2n + 5) {
+        border: 1px solid $gray-20;
+        border-top: 0;
+        border-radius: 0 0 20px 20px;
+      }
+
+      &:before {
+        content: attr(data-th) ": ";
+        display: inline-block;
+        font-weight: $font-weight-bold;
+        margin-right: 5px;
+
+        @include respond-to(mobile-xl) {
+          display: none;
+        }
+      }
+    }
+
+    & tbody tr td a {
+      color: $black;
+    }
+  }
+
+  /* &--account-details {
+    background-color: $white;
+
+    & thead tr {
+      border: 0;
+    }
+
+    & tbody tr {
+      background-color: $gray;
+      color: $dark-gray;
+    }
+
+    & thead tr,
+    & thead tr th {
+      font-size: .9rem;
+      font-weight: $font-weight-regular;
+    }
+
+    & tbody tr td:last-child {
+      text-align: right;
+    }
+
+    & tbody tr td a {
+      background-color: $gray-50;
+      color: $gray;
+      padding: 5px 10px;
+    }
+
+    & tbody tr td span {
+      font-weight: $font-weight-regular;
+    }
+
+    & caption {
+      font-weight: $font-weight-regular;
+      text-align: left;
+    }
+  } */
+}

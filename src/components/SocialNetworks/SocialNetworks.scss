@@ -1,0 +1,78 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.social-networks {
+  align-items: center;
+  background: $dark-green;
+  width: 100%;
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 20px 10px;
+  }
+
+  &__list {
+    @include unstyled-list;
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+
+    /* Edge only */
+    @supports (-ms-ime-align:auto) {
+      justify-content: space-between;
+    }
+
+    @include respond-up-to(tablet) {
+      display: none;
+    }
+
+    &--mobile {
+
+      @include respond-to(tablet) {
+        display: none;
+      }
+
+      & .social-networks__item {
+        justify-content: center;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+
+    // @include mobile {
+    /* @include respond-up-to(tablet) {
+      display: none;
+
+      &:first-child {
+        display: block;
+
+        & .social-networks__icon {
+          margin-left: 0;
+        }
+      }
+    } */
+
+    font-family: $font-text;
+    font-size: 14px;
+  }
+
+  &__icon {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+}

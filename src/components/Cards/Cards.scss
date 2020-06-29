@@ -1,0 +1,497 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.cards {
+  background: $dark-green;
+  margin: 0 15px;
+
+  @include respond-up-to(tablet) {
+    margin-bottom: 30px;
+  }
+
+  // @include desktop {
+  @include respond-to(tablet) {
+    width: 33%;
+  }
+
+  &--games {
+    background: transparent;
+    margin-bottom: 30px;
+
+    // @include desktop {
+    @include respond-to(tablet) {
+      position: relative;
+      width: calc(50% - 56px);
+    }
+
+    & .cards__img {
+      height: auto;
+      width: 100%;
+
+      & img {
+        width: 100%;
+      }
+
+      @include respond-to(tablet) {
+        height: 355px;
+        width: 365px;
+      }
+    }
+
+    & .cards__info {
+      background: $gray-20;
+      color: $white;
+
+      @include respond-to(tablet) {
+        bottom: 0;
+        height: 320px;
+        position: absolute;
+        right: 0;
+        width: 230px;
+      }
+    }
+
+    & .cards__title {
+      font-size: 24px;
+
+      @include respond-to(tablet) {
+        font-size: 30px;
+      }
+    }
+
+    &:nth-child(1) {
+      & .cards__info {
+        background: $green;
+        transition: all 1s;
+
+        &:hover {
+          background: darken($green, 15%);
+          transition: all 1s;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      & .cards__info {
+        background: $blue;
+        transition: all 1s;
+
+        &:hover {
+          background: darken($blue, 15%);
+          transition: all 1s;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      @include respond-to(tablet) {
+        margin: 70px 15px 100px;
+        width: 100%;
+      }
+
+      & .cards__info {
+        background: $light-yellow;
+        color: $dark-green;
+        transition: all 1s;
+
+        @include respond-to(tablet) {
+          height: 205px;
+        }
+
+        &:hover {
+          background: darken($light-yellow, 15%);
+          transition: all 1s;
+        }
+
+        // @include desktop {
+        @include respond-to(tablet) {
+          width: 420px;
+        }
+      }
+
+      & .cards__title {
+        font-size: 1.2rem;
+      }
+
+      & .cards__img {
+        @include respond-to(tablet) {
+          height: auto;
+          width: 70%;
+        }
+
+        // @include desktop {
+        @include respond-to(tablet) {
+          height: auto;
+          width: 840px;
+        }
+      }
+
+      & .cards__arrow {
+        fill: $dark-green;
+      }
+    }
+
+    &-smaller {
+      & .cards__title {
+        font-size: 21px;
+      }
+
+      &:nth-child(3) .cards__title {
+        font-size: 30px;
+        min-height: unset;
+        text-transform: none;
+      }
+    }
+
+    & .cards__arrow {
+      bottom: 25px;
+      fill: $white;
+      position: absolute;
+      right: 30px;
+    }
+  }
+
+  &--awards {
+    background: transparent;
+    margin-bottom: 10px;
+
+    // @include desktop {
+    @include respond-to(tablet) {
+      position: relative;
+      width: calc(50% - 40px);
+
+      &:not(:first-child) {
+        margin-top: 50px;
+      }
+    }
+
+    &:first-child {
+      @include respond-to(tablet) {
+        width: 100%;
+      }
+
+      & .cards__img {
+        width: 100%;
+
+        // @include desktop {
+        @include respond-to(tablet) {
+          background: #f5b4d2;
+          max-width: 840px;
+          width: 100%;
+
+          & img {
+            width: auto;
+          }
+        }
+      }
+    }
+
+    & .cards__img {
+      height: auto;
+
+      @include respond-to(tablet) {
+        height: 210px;
+      }
+
+      & img {
+        width: 100%;
+      }
+
+      // @include mobile {
+      @include respond-up-to(tablet) {
+        display: none;
+      }
+
+      // @include desktop {
+      @include respond-to(tablet) {
+        height: 385px;
+        width: 400px;
+      }
+    }
+
+    & .cards__info {
+      background: $gray-20;
+      color: $white;
+
+      // @include mobile {
+      @include respond-to(tablet) {
+        padding-bottom: 60px;
+      }
+
+      // @include desktop {
+      @include respond-to(tablet) {
+        bottom: 0;
+        height: 250px;
+        position: absolute;
+        right: 0;
+        width: 250px;
+      }
+    }
+
+    & .cards__overlay {
+      mix-blend-mode: hue;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+
+    &:nth-child(1) {
+      & .cards__overlay {
+        display: none;
+      }
+
+      & .cards__info {
+        background: $purple;
+        transition: all 1s;
+
+        &:hover {
+          background: darken($purple, 15%);
+          transition: all 1s;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      & .cards__info {
+        background: $green;
+        transition: all 1s;
+
+        &:hover {
+          background: darken($green, 15%);
+          transition: all 1s;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      & .cards__info {
+        background: $blue;
+        transition: all 1s;
+
+        &:hover {
+          background: darken($blue, 15%);
+          transition: all 1s;
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      & .cards__info {
+        background: $magenta;
+        transition: all 1s;
+
+        &:hover {
+          background: darken($magenta, 15%);
+          transition: all 1s;
+        }
+      }
+    }
+
+    &:nth-child(5) {
+      & .cards__info {
+        background: $orange;
+        transition: all 1s;
+
+        &:hover {
+          background: darken($orange, 15%);
+          transition: all 1s;
+        }
+      }
+    }
+
+    & .cards__arrow {
+      bottom: 25px;
+      fill: $white;
+      left: 20px;
+      position: absolute;
+
+      // @include desktop {
+      @include respond-to(tablet) {
+        bottom: 40px;
+        left: 30px;
+      }
+    }
+  }
+
+  &--full {
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 75px;
+    max-width: 100%;
+
+    @include respond-up-to(tablet) {
+      flex-direction: column;
+    }
+
+    @include respond-to(tablet) {
+      width: 100%;
+
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    & .cards__img {
+      height: auto;
+      width: 100%;
+
+      @include respond-to(tablet) {
+        max-width: 400px;
+        width: 50%;
+      }
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    & .cards__info {
+      color: $gray-50;
+      width: 100%;
+
+      @include respond-up-to(tablet) {
+        background: $white;
+        border: 1px solid $gray-20;
+        padding-bottom: 30px;
+      }
+
+      @include respond-to(tablet) {
+        width: 50%;
+      }
+    }
+
+    & .cards__position {
+      color: $magenta;
+      font-family: $Latina-Bold;
+      font-size: 30px;
+    }
+
+    & .cards__title {
+      color: $dark-green;
+    }
+  }
+
+  &--menu {
+    background: $magenta;
+    padding: 30px 30px 60px;
+
+    @include respond-to(tablet) {
+      width: 50%;
+    }
+
+    &:last-child {
+      background: $green;
+    }
+
+    & .cards__info {
+      @include respond-up-to(tablet) {
+        padding: 0;
+      }
+    }
+
+    & .cards__img {
+      display: none;
+    }
+
+    & .cards__arrow {
+      bottom: -15px;
+      fill: $white;
+      position: absolute;
+      right: 40px;
+    }
+  }
+
+  figure {
+    margin: 0;
+
+    @include respond-to(tablet) {
+      position: relative;
+    }
+  }
+
+  &__img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+
+    &-caption {
+      bottom: 30px;
+      position: absolute;
+      width: 100%;
+    }
+
+    &--big {
+      position: relative;
+      margin-bottom: 0;
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: left;
+  }
+
+  &__info {
+    color: $white;
+    font-family: $font-text;
+    padding: 25px 25px 60px;
+    position: relative;
+  }
+
+  &__title {
+    font-family: $Latina-Bold;
+    font-size: 21px;
+    min-height: 60px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+    &--faqs {
+      margin-bottom: 20px;
+    }
+
+    &--no-margin-top {
+      margin-top: 0;
+    }
+  }
+
+  &__position {
+    font-weight: $font-weight-regular;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    font-family: $font-text;
+    font-size: 16px;
+    line-height: 1.6rem;
+    margin-bottom: 0;
+    margin-top: 0.85rem;
+
+    @include respond-to(tablet) {
+      font-size: 19px;
+    }
+  }
+
+  &__link {
+    font-size: 0.9rem;
+    position: relative;
+    top: -10px;
+
+    &:after {
+      content: " \02023";
+      font-size: 3rem;
+      position: relative;
+      top: 10px;
+
+      // @include desktop {
+      @include respond-to(tablet) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}

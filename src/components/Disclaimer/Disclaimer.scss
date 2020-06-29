@@ -1,0 +1,50 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.disclaimer {
+  display: none;
+
+  &.is-visible {
+    background-color: $dark-green;
+    display: block;
+    padding: 25px;
+    position: fixed;
+    text-align: left;
+    width: 100%;
+    z-index: 999999;
+  }
+
+  @include respond-to(tablet) {
+    bottom: 0;
+  }
+
+  @include respond-up-to(tablet) {
+    top: 0;
+  }
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  &__description {
+    color: $white;
+    font-family: $font-text;
+    font-size: 1rem;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    padding-bottom: 20px;
+  }
+
+  & .button {
+    @include button($white, $dark-green, $dark-green, $white);
+    margin: 0;
+    border: 2px solid $white;
+
+    &:hover {
+      background: $dark-green;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.header {
+  display: none;
+
+  @media (min-width: 1024px) {
+    align-items: center;
+    background: $white;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 120px;
+    justify-content: space-between;
+    margin: 0 auto 10px;
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &--public {
+    align-items: center;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond-up-to(tablet) {
+      height: 70px;
+      padding: 0 15px;
+    }
+
+    @include respond-to(tablet) {
+      padding: 0 45px;
+    }
+
+    & .logo {
+      @include respond-to(tablet) {
+        margin-top: 0;
+      }
+    }
+
+    & .link--button {
+      background: $magenta;
+      color: $white;
+      padding-bottom: 10px;
+      padding-top: 10px;
+
+      @include respond-up-to(mobile) {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+    }
+
+    & .link__arrow {
+      display: none;
+    }
+
+    & .header__wrap-buttons {
+      align-items: center;
+      display: flex;
+
+      & span {
+        color: $gray-50;
+        display: inline-block;
+        font-family: $font-text;
+        font-size: 19px;
+        margin-right: 20px;
+
+        @include respond-up-to(tablet) {
+          display: none;
+        }
+      }
+    }
+  }
+}

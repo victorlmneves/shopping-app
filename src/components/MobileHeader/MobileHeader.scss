@@ -1,0 +1,31 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+$text-color: #828282;
+
+.mobile-header {
+  @include display-flex-between;
+  align-items: center;
+  background: $white;
+  height: 70px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  z-index: 99999;
+
+  &__menu {
+    fill: none;
+  }
+
+  &__icon {
+    fill: $magenta;
+  }
+
+  &__shopping {
+    color: $text-color;
+  }
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}

@@ -1,0 +1,270 @@
+@import "./variables";
+@import "./mixins";
+
+.section {
+  @include mobile {
+    @include clearfix;
+  }
+
+  @include desktop {
+    margin: 0 auto;
+    // overflow: hidden;
+    padding: 0;
+  }
+
+  &--forms {
+    /* @include respond-to(tablet) {
+      background: $light-green;
+    } */
+
+    & .section__inner {
+      padding: 0;
+    }
+  }
+
+  &--subsection {
+    /* background: $light-green; */
+    /* margin-bottom: -75px; */
+    margin-top: 30px;
+    padding: 50px 50px 0;
+
+    @include respond-to(tablet) {
+      display: none;
+    }
+
+    & .section__wrap-buttons {
+      margin-top: 0;
+    }
+
+    & .link--button {
+      background: $magenta;
+      color: $white;
+
+      & .link__arrow {
+        display: none;
+      }
+    }
+  }
+
+  // &--instructions {
+  //   padding-top: 0;
+  // }
+  //
+  // &--faqs {
+  //   border-bottom: 6px solid $light-gray;
+  //   padding-top: 60px;
+  // }
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 576px;
+    padding: 0 15px;
+
+    // @include desktop {
+    @include respond-to(tablet) {
+      max-width: 1080px;
+      padding: 0 25px;
+    }
+
+    // &--row {
+    //   @include mobile {
+    //     @include flex-vertical-align();
+    //   }
+    //
+    //   @include desktop {
+    //     @include display-flex-between();
+    //     align-items: center;
+    //   }
+    // }
+  }
+
+  &__content {
+    @include respond-up-to(tablet) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    @include respond-to(tablet) {
+      @include display-flex-between();
+      align-items: stretch;
+    }
+
+    &--block {
+      flex-direction: column;
+    }
+
+    &--columns {
+      flex-wrap: wrap;
+      padding-left: 0;
+      padding-right: 0;
+
+      &.no-wrap {
+        flex-wrap: nowrap;
+      }
+    }
+
+    &--play {
+      & .cards--games {
+        &:nth-child(1) {
+          & .cards__info {
+            background: $orange;
+            transition: all 1s;
+
+            &:hover {
+              background: darken($orange, 15%);
+              transition: all 1s;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          & .cards__info {
+            background: $purple;
+            transition: all 1s;
+
+            &:hover {
+              background: darken($purple, 15%);
+              transition: all 1s;
+            }
+          }
+        }
+      }
+    }
+
+    &--awards {
+      flex-wrap: wrap;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    color: $magenta;
+    font-family: $Latina-Bold;
+    font-size: 30px;
+    line-height: 1.8rem;
+    letter-spacing: 0.1rem;
+    margin: 75px auto;
+    text-align: center;
+    width: 100%;
+    word-spacing: 0.4rem;
+
+    // @include mobile {
+    @include respond-up-to(tablet) {
+      font-size: 24px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    &--no-margin-bottom {
+      margin-bottom: 0;
+    }
+
+    &--no-margin-top {
+      margin-top: 0;
+    }
+
+    &--smaller {
+      font-size: 24px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    &--my-position {
+      margin-bottom: 20px;
+    }
+
+    &--previous {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    /* @include mobile {
+      display: none;
+    } */
+
+    color: $gray-50;
+    font-family: $font-text;
+    font-size: 19px;
+    font-weight: $font-weight-regular;
+    margin: 10px auto 30px;
+    text-align: center;
+    width: 80%;
+
+    @include respond-to(tablet) {
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+
+    &--subsection {
+      font-family: $Latina-Light;
+      margin-bottom: 0;
+      /* top: -20px; */
+    }
+
+    &--ranking {
+      display: block;
+      font-family: $font-text;
+      font-weight: $font-weight-regular;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  &__legend {
+    color: $gray;
+    font-size: 0.8rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    margin-bottom: 30px;
+    margin-top: 0;
+
+    @include desktop {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      word-spacing: 0.15rem;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 1.1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__img {
+    @include mobile {
+      width: 100%;
+    }
+
+    @include desktop {
+      height: 680px;
+      padding-right: 5%;
+    }
+  }
+
+  &__wrap-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 30px;
+  }
+
+  &__hr {
+    border-color: $magenta;
+    border-width: 1px;
+    margin: 0 auto;
+    max-width: 80%;
+
+    @include respond-to(tablet) {
+      margin-bottom: 60px;
+      max-width: 505px;
+    }
+  }
+}
